@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+ const App = () =>{
+  let time = new Date().toLocaleTimeString();
+
+  const [ctime, setCtime] = useState();//useState accepts an initial state and returns two values//
+
+  const UpdateTime = ()=>{
+    time = new Date().toLocaleTimeString();
+    setCtime( time)
+  };
+
+  setInterval( UpdateTime, 1000);//The setInterval() method in JavaScript is used to repeat a specified function at every given time-interval.//
+
+
+  return(
+    <>
+    <h1>{time}</h1>
+    </>
+  )
+
 }
-
 export default App;
